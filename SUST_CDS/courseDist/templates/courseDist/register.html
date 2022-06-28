@@ -1,0 +1,29 @@
+{% extends "courseDist/base.html" %}
+
+{% block content %}
+    <!-- TEAM -->
+    <section id="team">
+	<div class='alert alert-{{ message.tags }}'>
+		{% if messages %}
+			{% for message in messages %}
+			<div>
+				{{ message }}
+			</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+        <div class="container">
+            <form  method="POST">
+		    {% csrf_token %}
+		    <fieldset>
+			<legend>Join Today</legend>
+			{{ form.as_p }}
+		    </fieldset>
+		    <div>
+			    <button type="submit">Sign Up</button>
+		    </div>
+	    </form>
+        </div>
+    </section>
+
+{% endblock content %}

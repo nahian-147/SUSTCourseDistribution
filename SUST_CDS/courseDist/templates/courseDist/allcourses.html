@@ -1,0 +1,52 @@
+{% extends "courseDist/base.html" %}
+
+{% block content %}
+
+	<section id="team">
+		<div class="alert alert-{{ message.tags }}">
+			{% if messages %}
+				{% for message in messages %}
+				<div>
+					{{ message }}
+				</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="container">
+		    <div class="row">
+	
+			<div class="col-md-12 col-sm-12">
+				<h2>All Courses:</h2>
+			    	<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th>Course Title</th>
+						<th>Course Code</th>
+						<th>Credit Hour</th>
+						<th>Paid Course</th>
+						<th>Optional Course</th>
+					</tr>
+					{% for course in courses %}
+					<tr>
+						<td>{{ course.title }}</td>
+						<td>{{ course.code }}</td>
+						<td>{{ course.credit_hour }}</td>
+						{% if course.ispaid %}
+							<td>YES</td>
+						{% else %}
+							<td>NO</td>
+						{% endif %}
+						{% if course.isoptional %}
+							<td>YES</td>
+						{% else %}
+							<td>NO</td>
+						{% endif %}
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		    </div>
+		</div>
+	</section>
+	
+{% endblock content%}

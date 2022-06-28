@@ -1,0 +1,148 @@
+{% extends "courseDist/base.html" %}
+
+{% block content %}
+    <!-- TEAM -->
+    <section id="team">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                    <h2>First Year First Semester</h2>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col"><center>Course Code</center></th>
+                                <th scope="col"><center>Course Title</center></th>
+                                <th scope="col"><center>Credit Hour</center></th>
+                                <th scope="col"><center>Course Teacher</center></th>
+                                <th scope="col"><center>Second Teacher</center></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for course in frst %}
+                            <tr>
+                                {% for item in course %}
+                                <td>{{item}}</td>
+                                {% endfor %}
+                                <td><select class="form-control" id="exampleFormControlSelect1">
+                                    <option>--</option>
+                                    {% for teacher in teachers %}
+                                    <option>{{ teacher.name }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <input class="btn btn-primary" type=button onClick="location.href='http://127.0.0.1:8000/dist/'" value='Save The Distribution'>
+                </div>
+
+                <div class="col-md-12 col-sm-12">
+                    </br>
+                </div>
+                
+                <div class="col-md-12 col-sm-12">
+                    <h2>Second Year First Semester</h2>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col"><center>Course Code</center></th>
+                                <th scope="col"><center>Course Title</center></th>
+                                <th scope="col"><center>Credit Hour</center></th>
+                                <th scope="col"><center>Course Teacher</center></th>
+                                <th scope="col"><center>Second Teacher</center></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for course in scnd %}
+                            <tr>
+                                {% for item in course %}
+                                <td>{{item}}</td>
+                                {% endfor %}
+                                <td><select class="form-control" id="exampleFormControlSelect1">
+                                    <option>--</option>
+                                    {% for teacher in teachers %}
+                                    <option>{{ teacher.name }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <input class="btn btn-primary" type=button onClick="location.href='http://127.0.0.1:8000/dist/'"
+                        value='Save The Distribution'>
+                </div>
+
+                
+                <div class="col-md-12 col-sm-12">
+                    <h2>Third Year First Semester</h2>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col"><center>Course Code</center></th>
+                                <th scope="col"><center>Course Title</center></th>
+                                <th scope="col"><center>Credit Hour</center></th>
+                                <th scope="col"><center>Course Teacher</center></th>
+                                <th scope="col"><center>Second Teacher</center></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for course in thrd %}
+                            <tr>
+                                {% for item in course %}
+                                <td>{{item}}</td>
+                                {% endfor %}
+                                <td><select class="form-control" id="exampleFormControlSelect1">
+                                    <option>--</option>
+                                    {% for teacher in teachers %}
+                                    <option>{{ teacher.name }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <input class="btn btn-primary" type=button onClick="location.href='http://127.0.0.1:8000/dist/'"
+                        value='Save The Distribution'>
+                </div>
+
+                
+                <div class="col-md-12 col-sm-12">
+                    <h2>Fourth Year First Semester</h2>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col"><center>Course Code</center></th>
+                                <th scope="col"><center>Course Title</center></th>
+                                <th scope="col"><center>Credit Hour</center></th>
+                                <th scope="col"><center>Course Teacher</center></th>
+                                <th scope="col"><center>Second Teacher</center></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for course in frth %}
+                            <tr>
+                                {% for item in course %}
+                                <td>{{item}}</td>
+                                {% endfor %}
+                                <td><select class="form-control" id="exampleFormControlSelect1">
+                                    <option>--</option>
+                                    {% for teacher in teachers %}
+                                    <option>{{ teacher.name }}</option>
+                                    {% endfor %}
+                                </select></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <input class="btn btn-primary" type=button onClick="location.href='http://127.0.0.1:8000/dist/'"
+                        value='Save The Distribution'>
+                </div>
+            </div>
+            <input type="button" style="float: left;background-color:rgb(10, 109, 7);color:white;width:220px;
+            height:40px;" onClick="location.href='http://127.0.0.1:8000/odd/'"
+                value='Finalize The Distribution'>
+        </div>
+    </section>
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends "courseDist/base.html" %}
+
+{% block content %}
+	<section id="team">
+		<div class="container">
+		<div class="row">
+
+			<div class="col-md-12 col-sm-12">
+				<h2>All Teachers:</h2>
+				<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col"><center>Name</center></th>
+						<th scope="col"><center>Code Name</center></th>
+						<th scope="col"><center>Seniority</center></th>
+						<th scope="col"><center>Email</center></th>
+						<th scope="col"><center>Status</center></th>
+					</tr>
+					{% for teacher in teachers %}
+					<tr>
+						<td>{{ teacher.name }}</td>
+						<td>{{ teacher.code_name }}</td>
+						<td>{{ teacher.seniority }}</td>
+						<td>{{ teacher.email }}</td>
+						{% if teacher.isActive %}
+							<td>Available</td>
+						{% else %}
+							<td>Unavailable</td>
+						{% endif %}
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+		</div>
+	</section>
+{% endblock content %}

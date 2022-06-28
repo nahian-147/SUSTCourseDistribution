@@ -1,0 +1,77 @@
+{% extends "courseDist/base.html" %}
+
+{% block content %}
+
+	<section id="team">
+		<div class="alert alert-{{ message.tags }}">
+			{% if messages %}
+				{% for message in messages %}
+				<div>
+					{{ message }}
+				</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="container">
+		    <div class="row">
+	
+			<div class="col-md-12 col-sm-12">
+				<h2>All Courses:</h2>
+			    	<form method="POST">
+					{% csrf_token %}
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th>Course Title</th>
+								<th>Course Code</th>
+								<th>Credit Hour</th>
+								<th>Paid Course</th>
+								<th>Optional Course</th>
+								<th>Offer</th>
+							</tr>
+							{% for course in courses %}
+							<tr>
+								<td>{{ course.title }}</td>
+								<td>{{ course.code }}</td>
+								<td>{{ course.credit_hour }}</td>
+								{% if course.ispaid %}
+									<td>YES</td>
+								{% else %}
+									<td>NO</td>
+								{% endif %}
+								{% if course.isoptional %}
+									<td>YES</td>
+								{% else %}
+									<td>NO</td>
+								{% endif %}
+								{% if course.isoptional %}
+									<td><input type="checkbox" name="{{course.code}}"></td>
+								{% else %}
+									<td>OFFERED</td>
+								{% endif %}
+		
+							</tr>
+							{% endfor %}
+					</table>
+
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col"><center>Junior to Senior</center></th>
+								<th scope="col"><center>Senior to Junior</center></th>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="jun_to_sen"></td>
+								<td><input type="checkbox" name="sen_to_jun"></td>
+							</tr>
+						
+					</table>
+
+					<input  type="submit"  value='GO'>
+				</form>
+			</div>
+		    </div>
+		</div>
+	</section>
+	
+{% endblock content%}

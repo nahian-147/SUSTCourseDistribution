@@ -1,0 +1,151 @@
+{% extends "courseDist/base.html" %}
+
+{% block content %}
+    <!-- TEAM -->
+    <section id="team">
+        <div class="container">
+            <form method="POST" {% if sem == 'First' %} action="/dist1/" {% else %} action="/dist2/" {% endif %}>
+                {% csrf_token %}
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                        <h2>First Year {{sem}} Semester</h2>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col"><center>Course Code</center></th>
+                                    <th scope="col"><center>Course Title</center></th>
+                                    <th scope="col"><center>Credit Hour</center></th>
+                                    <th scope="col"><center>Course Teacher</center></th>
+                                    <th scope="col"><center>Second Teacher</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in frst %}
+                                <tr>
+                                    {% for item in course %}
+                                    <td>{{item}}</td>
+                                    {% endfor %}
+                                    <td>
+                                        <select class="form-control" name="{{course.0}}">
+                                            <option>--</option>
+                                            {% for teacher in teachers %}
+                                            <option>{{ teacher.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+    
+                    <div class="col-md-12 col-sm-12">
+                        </br>
+                    </div>
+                    
+                    <div class="col-md-12 col-sm-12">
+                        <h2>Second Year {{sem}} Semester</h2>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col"><center>Course Code</center></th>
+                                    <th scope="col"><center>Course Title</center></th>
+                                    <th scope="col"><center>Credit Hour</center></th>
+                                    <th scope="col"><center>Course Teacher</center></th>
+                                    <th scope="col"><center>Second Teacher</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in scnd %}
+                                <tr>
+                                    {% for item in course %}
+                                    <td>{{item}}</td>
+                                    {% endfor %}
+                                    <td>
+                                        <select class="form-control" name="{{course.0}}">
+                                            <option>--</option>
+                                            {% for teacher in teachers %}
+                                            <option>{{ teacher.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+    
+                    
+                    <div class="col-md-12 col-sm-12">
+                        <h2>Third Year {{sem}} Semester</h2>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col"><center>Course Code</center></th>
+                                    <th scope="col"><center>Course Title</center></th>
+                                    <th scope="col"><center>Credit Hour</center></th>
+                                    <th scope="col"><center>Course Teacher</center></th>
+                                    <th scope="col"><center>Second Teacher</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in thrd %}
+                                <tr>
+                                    {% for item in course %}
+                                    <td>{{item}}</td>
+                                    {% endfor %}
+                                    <td>
+                                        <select class="form-control" name="{{course.0}}">
+                                            <option>--</option>
+                                            {% for teacher in teachers %}
+                                            <option>{{ teacher.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+    
+                    
+                    <div class="col-md-12 col-sm-12">
+                        <h2>Fourth Year {{sem}} Semester</h2>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col"><center>Course Code</center></th>
+                                    <th scope="col"><center>Course Title</center></th>
+                                    <th scope="col"><center>Credit Hour</center></th>
+                                    <th scope="col"><center>Course Teacher</center></th>
+                                    <th scope="col"><center>Second Teacher</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in frth %}
+                                <tr>
+                                    {% for item in course %}
+                                    <td>{{item}}</td>
+                                    {% endfor %}
+                                    <td>
+                                        <select class="form-control" name="{{course.0}}">
+                                            <option>--</option>
+                                            {% for teacher in teachers %}
+                                            <option>{{ teacher.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+    
+                </div>
+                <input type="submit" value='Finalize Assignment'>
+            </form>
+        </div>
+    </section>
+
+{% endblock content %}

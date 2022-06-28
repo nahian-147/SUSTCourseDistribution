@@ -1,0 +1,71 @@
+{% extends "courseDist/base.html" %}
+
+{% block content %}
+
+	<section id="team">
+		<div class="alert alert-{{ message.tags }}">
+			{% if messages %}
+				{% for message in messages %}
+				<div>
+					{{ message }}
+				</div>
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="container">
+		    <div class="row">
+	
+			<div class="col-md-12 col-sm-12">
+				<h2>All Courses:</h2>
+			    	<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">
+							<center>Course Title</center>
+						</th>
+						<th scope="col">
+							<center>Course Code</center>
+						</th>
+						<th scope="col">
+							<center>Credit Hour</center>
+						</th>
+						<th scope="col">
+							<center>Paid Course</center>
+						</th>
+						<th scope="col">
+							<center>Optional Course</center>
+						</th>
+						<th scope="col">
+							<center>Offer</center>
+						</th>
+					</tr>
+					{% for course in courses %}
+					<tr>
+						<td>{{ course.title }}</td>
+						<td>{{ course.code }}</td>
+						<td>{{ course.credit_hour }}</td>
+						{% if course.ispaid %}
+							<td>YES</td>
+						{% else %}
+							<td>NO</td>
+						{% endif %}
+						{% if course.isoptional %}
+							<td>YES</td>
+						{% else %}
+							<td>NO</td>
+						{% endif %}
+						{% if course.isoptional %}
+							<td><input type="checkbox"></td>
+						{% else %}
+							<td>OFFERED</td>
+						{% endif %}
+					</tr>
+					{% endfor %}
+				</table>
+		<input  type=button onClick="location.href='http://127.0.0.1:8000/dist/'" value='See Course Distribution'>
+			</div>
+		    </div>
+		</div>
+	</section>
+	
+{% endblock content%}
